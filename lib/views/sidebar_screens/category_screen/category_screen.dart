@@ -1,5 +1,6 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:market_sphere_admin_panel/controllers/category_controller.dart';
 
 class CategoryScreen extends StatefulWidget {
   static const String id = "\category-screen";
@@ -13,6 +14,7 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late String categoryName;
+  final CategoryController _categoryController = CategoryController();
   dynamic _categoryImage;
   dynamic _bannerImage;
 
@@ -67,6 +69,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             children: [
               //CATEGORY IMAGE SELECTION
               Column(
+                spacing:10,
                 children: [
                   Container(
                     width: 150,
@@ -79,9 +82,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           ? Image.memory(_categoryImage)
                           : const Text("Category Image"),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
                   ),
                   ElevatedButton(
                       onPressed: () {
@@ -157,9 +157,13 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 width: 10,
               ),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    debugPrint(categoryName);
+                    await _categoryController.uploadCategory(
+                        name: categoryName,
+                        pickedImage: _categoryImage,
+                        context: context,
+                        pickedBanner: _bannerImage);
                   }
                 },
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
