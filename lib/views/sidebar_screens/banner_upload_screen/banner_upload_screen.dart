@@ -1,6 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:market_sphere_admin_panel/controllers/banner_controller.dart';
+import 'package:market_sphere_admin_panel/views/sidebar_screens/banner_upload_screen/widgets/banner_widget.dart';
 
 class BannerUploadScreen extends StatefulWidget {
   static const String id = "\banner-upload-screen";
@@ -92,7 +93,8 @@ class _BannerUploadScreenState extends State<BannerUploadScreen> {
           ),
           const Divider(
             color: Colors.grey,
-          )
+          ),
+          BannerWidget()
         ],
       ),
     );

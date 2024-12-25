@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
-import 'package:iconly/iconly.dart';
 import 'package:market_sphere_admin_panel/views/sidebar_screens/banner_upload_screen/banner_upload_screen.dart';
 import 'package:market_sphere_admin_panel/views/sidebar_screens/buyer_screen/buyer_screen.dart';
 import 'package:market_sphere_admin_panel/views/sidebar_screens/category_screen/category_screen.dart';
 import 'package:market_sphere_admin_panel/views/sidebar_screens/order_screen/order_screen.dart';
 import 'package:market_sphere_admin_panel/views/sidebar_screens/products_screen.dart/product_screen.dart';
+import 'package:market_sphere_admin_panel/views/sidebar_screens/subcategory_screen/subcategory_screen.dart';
 import 'package:market_sphere_admin_panel/views/sidebar_screens/vendor_screen/vendor_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -38,6 +38,11 @@ class _MainScreenState extends State<MainScreen> {
       case CategoryScreen.id:
         setState(() {
           _selectedScreen = const CategoryScreen();
+        });
+        break;
+      case SubcategoryScreen.id:
+        setState(() {
+          _selectedScreen = const SubcategoryScreen();
         });
         break;
       case BannerUploadScreen.id:
@@ -98,6 +103,11 @@ class _MainScreenState extends State<MainScreen> {
             title: "Categories",
             route: CategoryScreen.id,
             icon: Icons.category_rounded,
+          ),
+          AdminMenuItem(
+            title: "Sub-Categories",
+            route: SubcategoryScreen.id,
+            icon: Icons.group_work_outlined,
           ),
           AdminMenuItem(
             title: "Upload Banners",
