@@ -1,4 +1,6 @@
 # Market Sphere - Web Admin Panel
+[![Dart](https://img.shields.io/badge/Dart-%230175C2.svg?logo=dart&logoColor=white)](#)
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=fff)](#)
 
 - Market Sphere Admin Panel is a web-based application built using Flutter Web. It allows administrators to oversee and manage all aspects of the Market Sphere ecosystem.
 - Developed under the **Market Sphere Project**.
